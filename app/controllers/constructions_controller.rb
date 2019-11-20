@@ -9,8 +9,11 @@ class ConstructionsController < ApplicationController
       @constructions = Construction.order('created_at ASC')
 
       if params[:name].present? 
-        @constructions = @constructions.where("code ILIKE ?", "%#{params[:name].strip}%")
+        @constructions = @constructions.where("name LIKE ? OR code LIKE ? OR city LIKE ?", 
+         "%#{params[:name].strip}%","%#{params[:name].strip}%","%#{params[:name].strip}%")
       end
+
+      
    end
 
    def new
