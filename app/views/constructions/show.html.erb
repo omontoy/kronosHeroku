@@ -1,0 +1,99 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="thumbnail" id="boxes">
+          <div class="col-xs-3" id="padding_images">
+            <div>
+              <%= image_tag @construction.image_url, id:"show_image" %>
+            </div>
+            
+          </div>
+
+          <div class="col-xs-6">
+            <h1 class="text-center" id="showNames">
+              <%= @construction.name %>   
+            </h1>
+
+            <div id="info_Thumbnail">
+
+              <div class="text-center" id="text">
+                <label>CAPACIDAD</label>
+                <p><%= @construction.capacity %> Estudiantes</p> 
+              </div>
+              
+              <!-- <div class ="text-center" id="text">
+                <label>DOCENTE</label>
+                <p><%= @construction.description %></p> 
+              </div> -->
+
+              <div class ="pull-right" id="text">
+                <label>SESIÓN</label>
+                <p><%= @construction.code %></p> 
+              </div>
+
+            </div>
+            
+
+          </div>  
+
+          
+          <div class="col-xs-3" id="infoSede">
+            <div class ="text-center" id="text">
+              <label>SEDE</label>
+              <p id="text-sede"><%= @construction.city %></p> 
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<div class="container">
+  <div class="col-xs-5" id="text-show">
+    <h3>Comentarios ( <%= @construction.comments.count %> )</h3>
+    <hr>
+    <% @construction.comments.each do |comment| %>
+
+      <div class="panel panel-default">
+        <div class="panel-heading" id="panelComments">
+          <strong><%= comment.user.email %> comentó hace <%= time_ago_in_words(comment.created_at) %></strong>
+        </div>
+
+        <div class="panel-body" id="text_controller">
+          <%= comment.body %>
+          <% if user_signed_in? && comment.user == current_user %>
+            <strong><%= link_to "Eliminar", [comment.construction, comment], :method => :delete, class:"pull-right" %></strong>
+          <% end %>
+        </div>
+        
+      </div>
+
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= form_for([@construction, @construction.comments.build]) do |f| %>
+
+        <div class="form-group">
+          <h4>Nuevo Comentario</h4>
+          <%= f.text_area :body, class:"form-control", placeholder:"Ingresa tu comentario" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Comentar", class:"btn btn-primary" %>
+        </div>
+        <br>
+
+      <% end %>
+    <% end %>
+    
+  </div>
+</div>

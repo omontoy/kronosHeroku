@@ -1,0 +1,76 @@
+#show_image {
+   height: 100%;
+}
+
+#padding_images {
+   padding-right: 0px;
+   padding-left: 0px;
+   height: 100%;
+}
+
+#text-show {
+   color: black;
+
+   .panel-heading {
+      color: black;
+   }
+
+   .panel-body {
+      color: black;
+   }
+}
+
+#description {
+   color: white;
+   font-size: 18px;
+}
+
+#show_title {
+   color: white;
+}
+
+#panelComments {
+   background-color: #00A5D9;
+}
+
+.panel-body {
+   background-color: #DCDCDC;
+}
+
+#image_info {
+   font-size: 18px;
+}
+
+#description_buttons {
+
+   #edit_button {
+      color: white;
+   }
+
+   #delete_button {
+      color: white;
+   }
+   
+   #edit_button:hover {
+      color: DarkGoldenRod;
+   }
+
+   #delete_button:hover {
+      color: FireBrick;
+   }
+}
+
+#info_Thumbnail {
+   label {
+      font-size: 25px;
+   }
+
+   p {
+      font-size: 20px;
+   }
+
+}
+
+h1#showNames {
+   margin-left: 250px;
+}

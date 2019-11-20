@@ -1,0 +1,34 @@
+
+<div class="container text-center">
+  <div class="row">
+    <h1>Cursos</h1>
+
+    <%= form_tag import_hmcourses_path, multipart: true do %>
+
+      <span class="btn btn-lg btn-warning" >
+        <%= file_field_tag :file %>
+      </span>
+      
+      <br>
+      <span>
+        <%= submit_tag "Enviar",class:"btn btn-lg btn-info", id:"boton" %>
+      </span>  
+      
+    <% end %>
+
+    <h1>Estudiantes</h1>
+    <%= form_tag import_students_path, multipart: true do %>
+
+      <span class="btn btn-lg btn-warning" >
+        <%= file_field_tag :file %>
+      </span>
+      
+      <br>
+      <span>
+        <%= submit_tag "Enviar",class:"btn btn-lg btn-info", id:"boton" %>
+      </span>  
+      
+    <% end %>
+  </div>
+</div>
+

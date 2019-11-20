@@ -1,0 +1,83 @@
+#index-images {
+   height: 100%;
+   margin: 0;
+}
+
+#padding-images {
+   padding-right: 0px;
+   padding-left: 0px;
+   height: 100%;
+}
+
+#boxes {
+   background: white;
+   height: 250px;
+   border-color: #00395B;
+   border-width: 4px;
+}
+
+body {
+   background: #edf0f5;
+}
+
+#delete_button:hover { 
+   color: FireBrick;
+}
+
+#edit_button:hover { 
+   color: DarkGoldenRod;
+}
+
+#date {
+   color: DimGray;
+}
+
+#text {
+   font-size: 20px;
+}
+
+.text_docente {
+   word-wrap: break-word;
+}
+
+#infoSede {
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   h3 {
+      margin-top: 0;
+      font-size: 60px !important;
+   }
+   label {
+      font-size: 45px;
+   }
+
+}
+
+#infoThumbnail {
+   margin-top: 30px;
+   display: flex;
+   justify-content: space-around;
+
+   label {
+      font-size: 25px;
+   }
+
+   p {
+      font-size: 20px;
+   }
+
+}
+
+#text-sede {
+   font-size: 30px;
+}
+
+#boxes {
+   margin-top: 5px;
+}
+
+#logo-eafit {
+  margin: 30px;
+}

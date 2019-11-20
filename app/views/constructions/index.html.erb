@@ -1,0 +1,78 @@
+<% if Student.count == 0 %>
+  <div class="col-sm-6 col-sm-offset-3">
+
+    <div class="text-center" id="logo-eafit">
+      <%= image_tag("logo_idiomas_eafit.png") %>
+    </div>
+
+    <div class="jumbotron">
+      <h1 class="text-center">Bienvenido al Predictor de Idiomas EAFIT !!</h1>
+    </div>
+
+    <div class=" form-group text-center">
+      <%= link_to "Comenzar", hmcourses_path, class:"btn btn-info btn-lg" %>
+    </div>
+
+  </div>
+
+  <% else %>
+  
+  <% @constructions.each do |construction| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <div class="thumbnail" id="boxes">
+            <div class="col-xs-3" id="padding-images">
+              <a href="<%= construction_path(construction.id) %>">
+                <%= image_tag (construction.image_url), id:"index-images" %>
+              </a>
+            </div>
+
+            <div class="col-xs-6">
+              <h1 class="text-center">
+                <%= link_to construction.name, construction_path(construction.id), id: "indexNames" %>
+              </h1>
+
+              
+
+              
+              <div id="infoThumbnail">
+
+                <div class="text-center" id="text">
+                  <label>CANTIDAD</label>
+                  <!-- <p><%= construction.capacity %> Estudiantes </p> -->
+                  
+                  <p><%= Hmcourse.count %> Estudiantes </p>
+                </div>
+                
+                <!-- <div class ="text-center" id="text">
+                  <label>DOCENTE</label>
+                  <p><%= construction.description %></p> 
+                </div> -->
+
+                <div class ="text-center" id="text">
+                  <label>SESIÓN</label>
+                  <p><%= construction.code %></p> 
+                </div>
+
+              </div>
+              
+
+            </div>  
+
+            
+            <div class="col-xs-3" id="infoSede">
+              <div class ="text-center" id="text">
+                <label>SEDE</label>
+                <p id="text-sede"><%= construction.city %></p> 
+              </div>
+            </div>
+            
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %> 
+
+<% end %>

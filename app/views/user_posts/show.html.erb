@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <br><br>
+      <% if current_user.constructions.count == 0 %>
+        <div class="col-xs-6 col-xs-offset-3">
+            <div class="jumbotron">
+              <h2 class="text-center">Aún no tienes publicaciones</h2>
+            </div>
+        </div>
+
+        <div class="col-xs-4 col-xs-offset-4">
+          <br><h2><%= link_to "CREAR MI PRIMER POST", new_construction_path, class:"btn btn-block btn-lg btn-primary" %></h2>  
+        </div>
+      <% end %>  
+        
+
+      <% @posts.each do |post| %>
+        <% if @posts.count  == 1  %>
+          <div class="col-xs-4 col-xs-offset-4">
+        <% elsif @posts.count % 3 == 0 || @posts.count % 2 == 1  %>
+          <div class="col-xs-4">
+        <% elsif @posts.count % 2 == 0 %>
+          <div class="col-xs-4 col-xs-offset-1">
+        <% end %>
+
+        <div class="thumbnail" id="userPosts-boxes">
+          <a href="<%= construction_path(post.id) %>">
+            <%= image_tag post.image_url, id:"index-images" %>
+          </a>
+
+          <div class="text-center">
+            <%= link_to post.name, construction_path(post.id), id:"userPosts-titles" %><br>
+
+             <% if user_signed_in? && post.user == current_user %>
+               <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_construction_path(post), id:"edit_button" %>
+
+               <%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, post, data: { confirm: "Are you sure?" }, method: :delete, id:"delete_button" %>
+             <% end %>
+          </div>
+        </div>
+    </div>   
+      <% end %>
+  </div>
+</div>
